@@ -21,7 +21,7 @@ spec:
         envFrom: 
         - configMapRef:
             name: app-settings
-        image: paras/nagp-devops-assign-1-feature:latest
+        image: paras22/nagp-devops-assign-1-feature:latest
         ports:
         - name: http
           containerPort: 80

@@ -2,7 +2,7 @@ pipeline{
   agent any
   environment {
     gitHubUrl= 'https://github.com/captainp99/nagp-final-repo'
-	scannerHome= tool name: 'sonar_scanner_home'
+	scannerHome= tool name: 'sonar_scanner_dotnet'
 	username= 'parasjain01'
 	registry= 'paras22/nagp-devops-assign-1'
   }

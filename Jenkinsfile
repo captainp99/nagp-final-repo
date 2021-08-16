@@ -96,6 +96,13 @@ pipeline{
 			   bat "docker run --name c-${username}-feature -d -p 7400:80 i-${username}-feature"
 			},
 			"Kuberneted Deployment": {
+			   script {
+			     withCredentials([file(credentialsId: 'gcpcreds', variable: 'GC_KEY')]){
+				  bat "gcloud auth activate-service-account --key-file=${GC_KEY}"
+				  bat "gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project optimistic-yeti-321307"
+				 }
+			   }
+			   bat "kubectl apply -f config.yaml"
 			   bat "kubectl apply -f deployment.yaml"
 			}
 		 )

@@ -11,7 +11,7 @@ pipeline{
     stage('Checkout git code'){
 	   steps{
 	     echo 'Checking out code start'
-	     get url: env.gitHubUrl
+	     git url: env.gitHubUrl
 	   }
 	}
 	

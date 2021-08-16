@@ -63,7 +63,7 @@ pipeline{
 	stage('Push Image to dockerhub') {
 	  steps{
 	     echo "Push Image to dockerhub"
-	     withDockerRegistry(credentialId: 'DockerHub', url: ''){
+	     withDockerRegistry(credentialsId: 'DockerHub', url: ''){
 		   bat "docker push ${registry}-feature:$BUILD_NUMBER"
 		   bat "docker push ${registry}-feature:latest"
 		 }

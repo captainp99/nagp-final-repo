@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: dotnet-nagp-feature
+  namespace: kubernetes-cluster-parasjain01
+  labels:
+    app: dotnet-nagp-feature
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: dotnet-nagp-feature
+  template:
+    metadata:
+      labels:
+        app: dotnet-nagp-feature
+    spec:
+      containers:
+      - name: dotnet-nagp-feature
+        image: paras/nagp-devops-assign-1-feature:latest
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: dotnet-nagp-feature
+  namespace: kubernetes-cluster-parasjain01
+spec:
+  type: LoadBalancer
+  selector:
+    app: dotnet-nagp-feature
+  ports:
+  - protocol: TCP
+    port: 80
+    nodePort: 30150

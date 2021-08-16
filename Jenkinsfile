@@ -11,7 +11,7 @@ pipeline{
     stage('Checkout git code'){
 	   steps{
 	     echo 'Checking out code start'
-	     git url: 'https://github.com/captainp99/nagp-final-repo.git'
+	     checkout([$class: 'GitSCM', branches: [[name: 'feature']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/captainp99/nagp-final-repo.git']]])
 	   }
 	}
 	
